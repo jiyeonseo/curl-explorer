@@ -18,7 +18,9 @@ export default () => {
       
       <StyledNavigationList $align={ALIGN.right}>
         <StyledNavigationItem>
-          <Button>Github</Button>
+          <Button onClick={() => {
+            window.open('https://github.com/jiyeonseo/curl-explorer','_blank');
+          }}>Github</Button>
         </StyledNavigationItem>
       </StyledNavigationList>
     </HeaderNavigation>
