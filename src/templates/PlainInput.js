@@ -1,17 +1,16 @@
 import React from 'react';
-import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
 import { Textarea } from "baseui/textarea";
-import { FormControl } from 'baseui/form-control';
+
 import { SIZE } from "baseui/input";
 import { H6 } from 'baseui/typography';
-import InputContext from '../templates/InputContext';
-// const PlainCurlContext = React.createContext([{}, () => { }]);
+
+import {RequestContext} from '../RequestContext';
 
 export default (props) => {
     const [input, setInput] = React.useState("");
-    const [inputError, setInputError] = React.useState(false);
-    const {setCurlExplorerInfo} = React.useContext(InputContext);
+    const [inputError, _] = React.useState(false);
 
+    const {setContextImp} = React.useContext(RequestContext);
 
     return (
         <div>
@@ -19,7 +18,12 @@ export default (props) => {
         <Textarea
             value={input}
             error={inputError}
-            onChange={e => setInput(e.target.value)}
+            onChange={e => {
+                setInput(e.target.value);
+                setContextImp({
+                    curlString : e.target.value
+                });
+            }}
             size={SIZE.large}
             placeholder="insert curl "
             clearable

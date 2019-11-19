@@ -1,18 +1,28 @@
 import * as React from "react";
 import { Textarea } from "baseui/textarea";
 import { SIZE } from "baseui/input";
+import {  FlexGridItem } from 'baseui/flex-grid';
+import {RequestContext} from '../RequestContext';
+const itemProps = {
+    marginTop: '100px',
+    height: 'scale1000',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
 
+  
 export default () => {
-    //   const onChange =  e => setOutput(e.target.value);
-    const output = '';
-    const onChange = () => { };
+
+   const {output} = React.useContext(RequestContext);
     return (
+        <FlexGridItem {...itemProps}>
         <Textarea
             value={output}
-            onChange={onChange}
             size={SIZE.large}
             placeholder="Output"
             disabled
         />
+        </FlexGridItem>
     );
 }

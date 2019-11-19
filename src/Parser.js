@@ -1,5 +1,5 @@
-var words = require('shellwords')
-var url = require('url')
+import words from 'shellwords';
+
 // TODO -F, --form
 // TODO --data-binary
 // TODO --data-urlencode
@@ -9,8 +9,8 @@ var url = require('url')
  * Attempt to parse the given curl string.
  */
 
-module.exports = exports.default = function (s) {
-    if (0 != s.indexOf('curl ')) return
+export default (s) => {
+    if (0 !== s.indexOf('curl ')) return
     var args = rewrite(words.split(s))
     var out = { method: 'GET', header: {} , form: {}}
     var state = ''
@@ -22,39 +22,39 @@ module.exports = exports.default = function (s) {
                 out.url = arg
                 break;
 
-            case arg == '-F' || arg == '--form':
+            case arg === '-F' || arg === '--form':
                 state = 'form'
                 break;
 
-            case arg == '-A' || arg == '--user-agent':
+            case arg === '-A' || arg === '--user-agent':
                 state = 'user-agent'
                 break;
 
-            case arg == '-H' || arg == '--header':
+            case arg === '-H' || arg === '--header':
                 state = 'header'
                 break;
 
-            case arg == '-d' || arg == '--data' || arg == '--data-ascii':
+            case arg === '-d' || arg === '--data' || arg === '--data-ascii':
                 state = 'data'
                 break;
 
-            case arg == '-u' || arg == '--user':
+            case arg === '-u' || arg === '--user':
                 state = 'user'
                 break;
 
-            case arg == '-I' || arg == '--head':
+            case arg === '-I' || arg === '--head':
                 out.method = 'HEAD'
                 break;
 
-            case arg == '-X' || arg == '--request':
+            case arg === '-X' || arg === '--request':
                 state = 'method'
                 break;
 
-            case arg == '-b' || arg == '--cookie':
+            case arg === '-b' || arg === '--cookie':
                 state = 'cookie'
                 break;
 
-            case arg == '--compressed':
+            case arg === '--compressed':
                 out.header['Accept-Encoding'] = out.header['Accept-Encoding'] || 'deflate, gzip'
                 break;
 
@@ -76,9 +76,6 @@ module.exports = exports.default = function (s) {
                         }else {
                             a[param[0]] = param[1]
                         }
-                        var key = param[0], value = param[1]
-                        
-                        
                         out.form = Object.assign(out.form, a) 
                         state = ''
                         break;
@@ -87,7 +84,7 @@ module.exports = exports.default = function (s) {
                         state = ''
                         break;
                     case 'data':
-                        if (out.method == 'GET' || out.method == 'HEAD') out.method = 'POST'
+                        if (out.method === 'GET' || out.method === 'HEAD') out.method = 'POST'
                         out.header['Content-Type'] = out.header['Content-Type'] || 'application/x-www-form-urlencoded'
                         out.body = out.body
                             ? out.body + '&' + arg
@@ -120,7 +117,7 @@ module.exports = exports.default = function (s) {
 
 function rewrite(args) {
     return args.reduce(function (args, a) {
-        if (0 == a.indexOf('-X')) {
+        if (0 === a.indexOf('-X')) {
             args.push('-X')
             args.push(a.slice(2))
         } else {

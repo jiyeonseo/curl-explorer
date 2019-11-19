@@ -1,25 +1,7 @@
 import React from 'react';
-import { Client as Styletron } from 'styletron-engine-atomic';
-import { Provider as StyletronProvider } from 'styletron-react';
 import { H6 } from 'baseui/typography';
-
-import { FormControl } from "baseui/form-control";
-import { Input } from "baseui/input";
-import { LightTheme, BaseProvider, styled } from 'baseui';
-import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
 import { Textarea } from "baseui/textarea";
-
 import { SIZE } from "baseui/input";
-
-
-const engine = new Styletron();
-
-const Lefted = styled('div', {
-    display: 'flex',
-    justifyContent: 'left',
-    alignItems: 'left',
-    height: '100%',
-});
 
 export default (props) => {
     const [input, setInput] = React.useState("");

@@ -1,14 +1,8 @@
 import React from 'react';
 import PlainInput from '../templates/PlainInput';
 import FormInput from '../templates/FormInput';
-import { Button, KIND, SHAPE } from "baseui/button";
-import { H6 } from 'baseui/typography';
-
-import InputContext from '../templates/InputContext';
-
+import { Button } from "baseui/button";
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid';
-
-import nullthrows from '../nullthrows';
 
 const itemProps = {
   // backgroundColor: 'mono300',
@@ -43,7 +37,6 @@ const InputForm = () => {
       <FlexGridItem {...narrowItemProps}>
         <div>
           <Button> {'Prittier'} </Button>
-          <Button> {'Plainer'}  </Button>
         </div>
       </FlexGridItem>
       <FlexGridItem {...itemProps}>
