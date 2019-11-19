@@ -12,7 +12,7 @@ export default () => {
   return (
     <HeaderNavigation>
       <StyledNavigationList $align={ALIGN.left}>
-        <StyledNavigationItem>CURL Explorer</StyledNavigationItem>
+        <StyledNavigationItem>Simple CURL Explorer</StyledNavigationItem>
       </StyledNavigationList>
       <StyledNavigationList $align={ALIGN.center} />
       

@@ -1,15 +1,14 @@
 import React from 'react';
 import { FlexGrid } from 'baseui/flex-grid';
 
-// import Plain from './templates/Plain';
 import { Client as Styletron } from 'styletron-engine-atomic';
 import { Provider as StyletronProvider } from 'styletron-react';
-import { LightTheme, BaseProvider, styled, darkTheme } from 'baseui';
+import { LightTheme, BaseProvider, styled } from 'baseui';
 
-import {  RequestProvider } from './RequestContext';
+import { RequestProvider } from './RequestContext';
 import Header from './component/Header';
 import Output from './component/Output';
-import InputForm from './component/InputForm';
+import Input from './component/Input';
 import Submit from './component/Submit';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -31,7 +30,7 @@ const App = () => {
         <Centered>
           <RequestProvider>
             <FlexGrid flexGridColumnCount={1} >
-              <InputForm />
+              <Input />
               <Submit />
               <Output />
             </FlexGrid>

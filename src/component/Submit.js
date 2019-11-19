@@ -5,21 +5,22 @@ import { Button } from "baseui/button";
 
 
 const itemProps = {
-    marginTop: '200px',
+    marginTop: '150px',
     height: 'scale1000',
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   };
   
-export default () => {  
+export default (props) => {
+  
    const {requestCURL, curlString} = React.useContext(RequestContext);
 
     return (
         <FlexGridItem {...itemProps}>
             <Button onClick={() => {
                 requestCURL(curlString);   
-            }}>Submit</Button>
+            }}>Send</Button>
         </FlexGridItem> 
     )
 }

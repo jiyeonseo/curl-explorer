@@ -68,7 +68,7 @@ export default (s) => {
                     case 'form':                   
                         var param = parseForm(arg)
                         var a = {}
-                        console.log("param[1]", param[1])
+                        
                         if(param[1].indexOf("{")>-1) {
                             // multiple params
                             a[param[0]] = JSON.parse(param[1])
